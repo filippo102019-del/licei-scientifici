@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Licei Scientifici Statali di Genova</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
+    body {
+      background-color: #f4f6f9;
+      color: #333;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #1e3a8a;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .card-title a:hover {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    .card-address {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .btn-map {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #2563eb;
+      color: #ffffff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-map:hover {
+      background-color: #1d4ed8;
+    }
+
+    .btn-map svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Licei Scientifici Statali di Genova</h1>
+    
+    <div class="grid">
+
+      <!-- Liceo Cassini -->
+      <div class="card">
+        <div>
+          <h2 class="card-title">
+            <a href="https://www.liceocassini.it/" target="_blank" rel="noopener noreferrer">Liceo G.D. Cassini</a>
+          </h2>
+          <p class="card-address">Via Galata, 34 Canc. - Genova</p>
+          <p class="card-description">
+            Storico liceo situato nel centro di Genova, rinomato per l'eccellenza sia nell'indirizzo scientifico sia in quello classico.
+          </p>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Liceo+G.D.+Cassini+Via+Galata+34+Genova" target="_blank" rel="noopener noreferrer" class="btn-map">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Visualizza sulla mappa
+        </a>
+      </div>
+
+      <!-- Liceo Leonardo da Vinci -->
+      <div class="card">
+        <div>
+          <h2 class="card-title">
+            <a href="https://www.liceodavincigenova.edu.it/" target="_blank" rel="noopener noreferrer">Liceo Leonardo da Vinci</a>
+          </h2>
+          <p class="card-address">Via B. Arecco, 2 - Genova</p>
+          <p class="card-description">
+            Istituto focalizzato sull'innovazione didattica, propone percorsi scientifici tradizionali ed opzioni applicate alle scienze.
+          </p>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Liceo+Leonardo+da+Vinci+Via+B.+Arecco+2+Genova" target="_blank" rel="noopener noreferrer" class="btn-map">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Visualizza sulla mappa
+        </a>
+      </div>
+
+      <!-- Liceo E. Fermi -->
+      <div class="card">
+        <div>
+          <h2 class="card-title">
+            <a href="https://www.fermi.edu.it/" target="_blank" rel="noopener noreferrer">Liceo E. Fermi</a>
+          </h2>
+          <p class="card-address">Via W. Ulanowski, 56 - Genova</p>
+          <p class="card-description">
+            Liceo scientifico di riferimento per la zona centro-ovest di Genova, con solida preparazione scientifica e laboratoriale.
+          </p>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Liceo+E.+Fermi+Via+W.+Ulanowski+56+Genova" target="_blank" rel="noopener noreferrer" class="btn-map">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Visualizza sulla mappa
+        </a>
+      </div>
+
+      <!-- Liceo M.L. King -->
+      <div class="card">
+        <div>
+          <h2 class="card-title">
+            <a href="https://www.liceoking.edu.it/" target="_blank" rel="noopener noreferrer">Liceo M.L. King</a>
+          </h2>
+          <p class="card-address">Via Sturla, 63 - Genova</p>
+          <p class="card-description">
+            Polo scolastico di Sturla che affianca all'indirizzo scientifico tradizionale anche la sezione ad indirizzo sportivo e classico.
+          </p>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Liceo+M.L.+King+Via+Sturla+63+Genova" target="_blank" rel="noopener noreferrer" class="btn-map">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Visualizza sulla mappa
+        </a>
+      </div>
+
+      <!-- Liceo L. Lanfranconi -->
+      <div class="card">
+        <div>
+          <h2 class="card-title">
+            <a href="https://www.lanfranconi.edu.it/" target="_blank" rel="noopener noreferrer">Liceo L. Lanfranconi</a>
+          </h2>
+          <p class="card-address">Via ai Cantieri, 2 - Genova</p>
+          <p class="card-description">
+            Polo liceale situato a Genova Voltri, attivo nell'offerta formativa scientifica e delle scienze umane nel ponente cittadino.
+          </p>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Liceo+L.+Lanfranconi+Via+ai+Cantieri+2+Genova" target="_blank" rel="noopener noreferrer" class="btn-map">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Visualizza sulla mappa
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
