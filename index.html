@@ -9,102 +9,151 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     body {
-      background-color: #f4f6f9;
-      color: #333;
-      padding: 20px;
+      background-color: #f1f5f9;
+      color: #1e293b;
+      padding: 16px;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 30px;
-      color: #1e3a8a;
+      margin-bottom: 24px;
+      font-size: 1.6rem;
+      color: #0f172a;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    /* Layout per schermi più grandi (Tablet / Desktop) */
+    @media (min-width: 640px) {
+      body {
+        padding: 32px;
+      }
+      h1 {
+        font-size: 2.1rem;
+        margin-bottom: 32px;
+      }
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 24px;
+      }
     }
 
     .card {
       background: #ffffff;
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid #e2e8f0;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    .card-header {
+      margin-bottom: 12px;
     }
 
     .card-title {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      color: #1e293b;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .card-title a {
-      color: inherit;
+      color: #2563eb;
       text-decoration: none;
     }
 
     .card-title a:hover {
-      color: #2563eb;
       text-decoration: underline;
     }
 
     .card-address {
-      font-size: 0.875rem;
+      font-size: 0.9rem;
       color: #64748b;
-      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
     .card-description {
       font-size: 0.95rem;
-      color: #475569;
+      color: #334155;
       line-height: 1.5;
       margin-bottom: 20px;
       flex-grow: 1;
     }
 
-    .btn-map {
+    /* Gruppo pulsanti per mobile */
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (min-width: 480px) {
+      .button-group {
+        flex-direction: row;
+      }
+    }
+
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background-color: #2563eb;
-      color: #ffffff;
-      padding: 10px 16px;
-      border-radius: 8px;
+      padding: 12px 16px;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
-      transition: background-color 0.2s ease;
+      min-height: 44px; /* Dimensione ideale per il tocco su mobile */
+      text-align: center;
+      flex: 1;
+      transition: background-color 0.2s ease, transform 0.1s ease;
     }
 
-    .btn-map:hover {
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
       background-color: #1d4ed8;
     }
 
-    .btn-map svg {
+    .btn-secondary {
+      background-color: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+
+    .btn-secondary:hover {
+      background-color: #e2e8f0;
+    }
+
+    .btn svg {
       width: 18px;
       height: 18px;
       fill: currentColor;
+      flex-shrink: 0;
     }
   </style>
 </head>
@@ -118,96 +167,121 @@
       <!-- Liceo Cassini -->
       <div class="card">
         <div>
-          <h2 class="card-title">
-            <a href="https://www.liceocassini.it/" target="_blank" rel="noopener noreferrer">Liceo G.D. Cassini</a>
-          </h2>
-          <p class="card-address">Via Galata, 34 Canc. - Genova</p>
+          <div class="card-header">
+            <h2 class="card-title">
+              <a href="https://www.liceocassini.it/" target="_blank" rel="noopener">Liceo G.D. Cassini</a>
+            </h2>
+            <p class="card-address">Via Galata, 34 Canc. - Genova</p>
+          </div>
           <p class="card-description">
-            Storico liceo situato nel centro di Genova, rinomato per l'eccellenza sia nell'indirizzo scientifico sia in quello classico.
+            Storico liceo situato nel centro di Genova, rinomato per l'eccellenza nell'indirizzo scientifico e classico.
           </p>
         </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Liceo+G.D.+Cassini+Via+Galata+34+Genova" target="_blank" rel="noopener noreferrer" class="btn-map">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-          </svg>
-          Visualizza sulla mappa
-        </a>
+        <div class="button-group">
+          <a href="https://www.google.com/maps/search/?api=1&query=Liceo+G.D.+Cassini+Via+Galata+34+Genova" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Google Maps
+          </a>
+          <a href="https://www.openstreetmap.org/search?query=Liceo%20Cassini%20Via%20Galata%20Genova" target="_blank" rel="noopener" class="btn btn-secondary">
+            OpenStreetMap
+          </a>
+        </div>
       </div>
 
       <!-- Liceo Leonardo da Vinci -->
       <div class="card">
         <div>
-          <h2 class="card-title">
-            <a href="https://www.liceodavincigenova.edu.it/" target="_blank" rel="noopener noreferrer">Liceo Leonardo da Vinci</a>
-          </h2>
-          <p class="card-address">Via B. Arecco, 2 - Genova</p>
+          <div class="card-header">
+            <h2 class="card-title">
+              <a href="https://www.liceodavincigenova.edu.it/" target="_blank" rel="noopener">Liceo Leonardo da Vinci</a>
+            </h2>
+            <p class="card-address">Via B. Arecco, 2 - Genova</p>
+          </div>
           <p class="card-description">
-            Istituto focalizzato sull'innovazione didattica, propone percorsi scientifici tradizionali ed opzioni applicate alle scienze.
+            Focalizzato sull'innovazione didattica, propone percorsi scientifici tradizionali ed opzioni applicate alle scienze.
           </p>
         </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Liceo+Leonardo+da+Vinci+Via+B.+Arecco+2+Genova" target="_blank" rel="noopener noreferrer" class="btn-map">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-          </svg>
-          Visualizza sulla mappa
-        </a>
+        <div class="button-group">
+          <a href="https://www.google.com/maps/search/?api=1&query=Liceo+Leonardo+da+Vinci+Via+B.+Arecco+2+Genova" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Google Maps
+          </a>
+          <a href="https://www.openstreetmap.org/search?query=Liceo%20Leonardo%20da%20Vinci%20Via%20Arecco%20Genova" target="_blank" rel="noopener" class="btn btn-secondary">
+            OpenStreetMap
+          </a>
+        </div>
       </div>
 
       <!-- Liceo E. Fermi -->
       <div class="card">
         <div>
-          <h2 class="card-title">
-            <a href="https://www.fermi.edu.it/" target="_blank" rel="noopener noreferrer">Liceo E. Fermi</a>
-          </h2>
-          <p class="card-address">Via W. Ulanowski, 56 - Genova</p>
+          <div class="card-header">
+            <h2 class="card-title">
+              <a href="https://www.fermi.edu.it/" target="_blank" rel="noopener">Liceo E. Fermi</a>
+            </h2>
+            <p class="card-address">Via W. Ulanowski, 56 - Genova</p>
+          </div>
           <p class="card-description">
-            Liceo scientifico di riferimento per la zona centro-ovest di Genova, con solida preparazione scientifica e laboratoriale.
+            Punto di riferimento per il centro-ovest cittadino, offre una solida preparazione scientifica e laboratoriale.
           </p>
         </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Liceo+E.+Fermi+Via+W.+Ulanowski+56+Genova" target="_blank" rel="noopener noreferrer" class="btn-map">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-          </svg>
-          Visualizza sulla mappa
-        </a>
+        <div class="button-group">
+          <a href="https://www.google.com/maps/search/?api=1&query=Liceo+E.+Fermi+Via+W.+Ulanowski+56+Genova" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Google Maps
+          </a>
+          <a href="https://www.openstreetmap.org/search?query=Liceo%20Fermi%20Via%20Ulanowski%20Genova" target="_blank" rel="noopener" class="btn btn-secondary">
+            OpenStreetMap
+          </a>
+        </div>
       </div>
 
       <!-- Liceo M.L. King -->
       <div class="card">
         <div>
-          <h2 class="card-title">
-            <a href="https://www.liceoking.edu.it/" target="_blank" rel="noopener noreferrer">Liceo M.L. King</a>
-          </h2>
-          <p class="card-address">Via Sturla, 63 - Genova</p>
+          <div class="card-header">
+            <h2 class="card-title">
+              <a href="https://www.liceoking.edu.it/" target="_blank" rel="noopener">Liceo M.L. King</a>
+            </h2>
+            <p class="card-address">Via Sturla, 63 - Genova</p>
+          </div>
           <p class="card-description">
-            Polo scolastico di Sturla che affianca all'indirizzo scientifico tradizionale anche la sezione ad indirizzo sportivo e classico.
+            Situato nel quartiere di Sturla, affianca all'indirizzo scientifico le sezioni ad indirizzo sportivo e classico.
           </p>
         </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Liceo+M.L.+King+Via+Sturla+63+Genova" target="_blank" rel="noopener noreferrer" class="btn-map">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-          </svg>
-          Visualizza sulla mappa
-        </a>
+        <div class="button-group">
+          <a href="https://www.google.com/maps/search/?api=1&query=Liceo+M.L.+King+Via+Sturla+63+Genova" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Google Maps
+          </a>
+          <a href="https://www.openstreetmap.org/search?query=Liceo%20King%20Via%20Sturla%20Genova" target="_blank" rel="noopener" class="btn btn-secondary">
+            OpenStreetMap
+          </a>
+        </div>
       </div>
 
       <!-- Liceo L. Lanfranconi -->
       <div class="card">
         <div>
-          <h2 class="card-title">
-            <a href="https://www.lanfranconi.edu.it/" target="_blank" rel="noopener noreferrer">Liceo L. Lanfranconi</a>
-          </h2>
-          <p class="card-address">Via ai Cantieri, 2 - Genova</p>
+          <div class="card-header">
+            <h2 class="card-title">
+              <a href="https://www.lanfranconi.edu.it/" target="_blank" rel="noopener">Liceo L. Lanfranconi</a>
+            </h2>
+            <p class="card-address">Via ai Cantieri, 2 - Genova</p>
+          </div>
           <p class="card-description">
-            Polo liceale situato a Genova Voltri, attivo nell'offerta formativa scientifica e delle scienze umane nel ponente cittadino.
+            Situato a Genova Voltri, costituisce il polo liceale scientifico e delle scienze umane del ponente cittadino.
           </p>
         </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Liceo+L.+Lanfranconi+Via+ai+Cantieri+2+Genova" target="_blank" rel="noopener noreferrer" class="btn-map">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-          </svg>
-          Visualizza sulla mappa
-        </a>
+        <div class="button-group">
+          <a href="https://www.google.com/maps/search/?api=1&query=Liceo+L.+Lanfranconi+Via+ai+Cantieri+2+Genova" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Google Maps
+          </a>
+          <a href="https://www.openstreetmap.org/search?query=Liceo%20Lanfranconi%20Via%20ai%20Cantieri%20Genova" target="_blank" rel="noopener" class="btn btn-secondary">
+            OpenStreetMap
+          </a>
+        </div>
       </div>
 
     </div>
